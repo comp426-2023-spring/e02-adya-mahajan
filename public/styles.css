@@ -1,8 +1,13 @@
 body {
+    background-color: cadetblue;
 }
 
 h1 {
+    color:white;
+    text-align: center;
+    padding: 50;
 }
 
 p {
+    color:white; 
 }
