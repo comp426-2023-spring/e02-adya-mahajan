@@ -22,6 +22,10 @@ function reset(){
     move="rock";
     document.getElementById("game_options").hidden = false;
     document.getElementById("rpsls_move_options").hidden = true; 
+    document.getElementById("results").hidden = true; 
+    document.getElementById("rps").checked = false;
+    document.getElementById("rpsls").checked = false;
+    document.getElementById("opponent").checked = false;
     
 }
 
@@ -38,31 +42,65 @@ function opponentgame(){
 }
 
 function playgame(){
-    document.getElementById("game_options").hidden = true;
-    document.getElementById("rpsls_move_options").hidden = false; 
-    if (rps){
-        var dropdown = document.getElementById("your_move");
-        dropdown.remove(4);
-        dropdown.remove(3);
-    } 
+    
+    if (!document.getElementById("rps").checked && !document.getElementById("rpsls").checked)
+        window.alert("Must select a game to play");
+    else{
+        if(!opponent){
+            makeMove()
+        }
+        else{
+            document.getElementById("game_options").hidden = true;
+            document.getElementById("rpsls_move_options").hidden = false; 
+            if (rps){
+                var dropdown = document.getElementById("your_move");
+                dropdown.remove(4);
+                dropdown.remove(3);
+            }
+        } 
+    }
 
 }
 
-function submit(){
-    document.write("hello");
-    var index = document.getElementById("your_move");
-    
-    move = moves[index.value];
+function makeMove(){
     if(!opponent) {
         if(rps){
             var randMove = moves[Math.floor(Math.random()* 3)];
-            var api = "/app/rps/play/"
-
+            var api = "/app/rps/play/" + randMove;
+            fetch(api).then(response => response.json()).then(data => {
+                document.getElementById("results").innerText = JSON.stringify(data);
+                document.getElementById("game_options").hidden = true; 
+                document.getElementById("results").hidden = false; 
+            });
         } else {
             var randMove = moves[Math.floor(Math.random()* 5)];
-            var api = "/app/rpsls/play/"
+            var api = "/app/rpsls/play/"+randMove;
+            fetch(api).then(response => response.json()).then(data => {
+                document.getElementById("results").innerText = JSON.stringify(data);
+                document.getElementById("game_options").hidden = true; 
+                document.getElementById("results").hidden = false; 
+            });
 
         }
     }
-    
+    else{
+        var index = document.getElementById("your_move");
+        move = moves[index.value];
+        if(rps){
+            var api = "/app/rps/play/" + move;
+            fetch(api).then(response => response.json()).then(data => {
+                document.getElementById("results").innerText = JSON.stringify(data);
+                document.getElementById("rpsls_move_options").hidden = true; 
+                document.getElementById("results").hidden = false; 
+            });
+        } else {
+            var api = "/app/rpsls/play/"+ move;
+            fetch(api).then(response => response.json()).then(data => {
+                document.getElementById("results").innerText = JSON.stringify(data);
+                document.getElementById("rpsls_move_options").hidden = true; 
+                document.getElementById("results").hidden = false; 
+            });
+        }
+    } 
+
 }
