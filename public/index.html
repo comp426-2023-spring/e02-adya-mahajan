@@ -4,12 +4,74 @@
         <title>Rock Paper Scissors Shoot</title>
         <!-- Link to your script file(s) and CSS in here somewhere -->
         <link rel="stylesheet" href="styles.css">
-        <script src="script.js"></script>
+            <script src="./scripts.js"></script>
     </head>
     <body>
         <h1>Rock Paper Scissors Shoot!</h1>
     <!-- Your interface markup goes here -->
     <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
+            <button type="button" class="button" id="reset" onclick="reset()">Reset</button>
 
+            <button type="button" class="button" onclick="rules()">Rules</button>
+            <div id="view_rules" style="display:none">
+
+               <dl>
+                <dt>Rules for Rock Paper Scissors:</dt>
+                    <dd>- Scissors CUTS Paper</dd>
+                    <dd>- Paper COVERS Rock</dd>
+                    <dd>- Rock CRUSHES Scissors</dd>
+                <br></br>
+                <dt>Rules for the Lizard-Spock Expansion of Rock Paper Scissors:</dt>
+                    <dd>- Scissors CUTS Paper</dd>
+                    <dd>- Paper COVERS Rock</dd>
+                    <dd>- Rock SMOOSHES Lizard</dd>
+                    <dd>- Lizard POISONS Spock</dd>
+                    <dd>- Spock SMASHES Scissors</dd>
+                    <dd>- Scissors DECAPITATES Lizard</dd>
+                    <dd>- Lizard EATS Paper</dd>
+                    <dd>- Paper DISPROVES Spock</dd>
+                    <dd>- Spock VAPORIZES Rock</dd>
+                    <dd> - Rock CRUSHES Scissors</dd>
+                </dl> 
+                
+            </div>
+            <br></br>
+        
+        <form id="game_options">
+            <!--type of game options-->
+            <h2>Choose a game to play!</h2>
+            <input type="radio" id="rps" name="game_type" value="rps" onclick="rpsgame()">
+                <label for="rps">Rock Paper Scissors</label> 
+                <br></br>
+            <input type="radio" id="rpsls" name="game_type" value="rpsls" onclick="rpslsgame()">
+                <label for="rpsls">Rock Paper Scissors Lizard Spock </label>
+                <br></br>   
+
+            <!--opponent option-->
+            <h2>Do you want an opponent?</h2>
+            <input type="radio" id="opponent" name="opponent_type" value="opponent"  onclick="opponentgame()">
+                <label for="opponent">Yes, opponent wanted!</label> 
+            <br></br>
+            <br></br>
+            <!--play game button-->
+            <button type="button" class="submit" id="play_game" onclick="playgame()">Play</button>
+        </form>
+        <br></br>
+        <form id="rpsls_move_options" hidden>
+            <label for="your_move">Your move:</label>
+            <select id="your_move" name="possMoves" form="moveForm">
+                <option id="rock" value=0>Rock</option>
+                <option id="paper" value=1>Paper</option>
+                <option id="scissors" value=2>Scissors</option>
+                <option id="lizard" value=3>Lizard</option>
+                <option id="spock" value=4>Spock</option>
+            </select>
+            <button type="button" id="submit" onclick="submit()">Submit</button>
+        </form>
+        <br></br>
+        <form id="results" hidden></form>
+
+             
+        
     </body>
 </html>
