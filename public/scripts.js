@@ -7,6 +7,10 @@ var opponent = false;
 const moves = ["rock", "paper","scissors","lizard", "spock"];
 var move = "rock";
 
+function hidethis(){
+    document.getElementById("rpsls_move_options").hidden = true; 
+}
+
 function rules(){
     var x = document.getElementById("view_rules");
     if(x.style.display === "none"){

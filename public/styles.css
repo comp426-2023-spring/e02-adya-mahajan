@@ -1,23 +1,22 @@
 body {
     background-color: cadetblue;
-    font: sans-serif; 
 
 }
 
 h1 {
     color:black;
     text-align: center;
-    padding: 20;
+    padding: 20px;
 }
 
 h2 {
     color:black;
-    padding: 5;
+    padding: 5px;
 }
 
 
 .button{
-    padding: 10;
+    padding: 10px;
     margin: 10px;
     background-color: greenyellow;
     border-radius: 4px; 
@@ -28,7 +27,7 @@ h2 {
 }
 
 .submit{
-    padding: 10;
+    padding: 10px;
     margin: 10px;
     background-color: greenyellow;
     font-size:18px;
