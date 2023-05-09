@@ -12,11 +12,9 @@
     <!-- Your interface markup goes here -->
     <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
             <button type="button" class="button" id="reset" onclick="reset()">Reset</button>
-
             <button type="button" class="button" onclick="rules()">Rules</button>
             <div id="view_rules"> </div>
             <br><br>
-        
         <form id="game_options">
             <!--type of game options-->
             <h2>Choose a game to play!</h2>
@@ -26,7 +24,6 @@
             <input type="radio" id="rpsls" name="game_type" value="rpsls" onclick="rpslsgame()">
                 <label for="rpsls">Rock Paper Scissors Lizard Spock </label>
                 <br><br>   
-
             <!--opponent option-->
             <h2>Do you want an opponent?</h2>
             <input type="radio" id="opponent" name="opponent_type" value="opponent"  onclick="opponentgame()">
@@ -55,6 +52,5 @@
             <button type="button" class="submit" id="play" onclick="makeMove()">Submit</button>
         </form>
         <form id="results" hidden></form>
-
     </body>
 </html>
