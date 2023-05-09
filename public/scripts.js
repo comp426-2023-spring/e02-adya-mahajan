@@ -6,18 +6,48 @@ var rps = true;
 var opponent = false; 
 const moves = ["rock", "paper","scissors","lizard", "spock"];
 var move = "rock";
+var showRules = false; 
 
 function hidethis(){
     document.getElementById("rpsls_move_options").hidden = true; 
 }
 
 function rules(){
+    showRules = !showRules;
     var x = document.getElementById("view_rules");
+    /*
     if(x.style.display === "none"){
         x.style.display="flex";
     } else {
         x.style.display="none";
     }
+    */
+   if(showRules){
+    document.getElementById("view_rules").innerText = 
+    
+    `Rules for Rock Paper Scissors:
+
+            - Scissors CUTS Paper
+            - Paper COVERS Rock
+            - Rock CRUSHES Scissors
+
+    Rules for the Lizard-Spock Expansion of Rock Paper Scissors:
+
+    - Scissors CUTS Paper
+    - Paper COVERS Rock
+    - Rock SMOOSHES Lizard
+    - Lizard POISONS Spock
+    - Spock SMASHES Scissors
+    - Scissors DECAPITATES Lizard
+    - Lizard EATS Paper
+    - Paper DISPROVES Spock
+    - Spock VAPORIZES Rock
+    - Rock CRUSHES Scissors`;
+
+   }
+   else{
+    document.getElementById("view_rules").innerText = "";
+   }
 }
 
 function reset(){
@@ -106,5 +136,4 @@ function makeMove(){
             });
         }
     } 
-
 }
