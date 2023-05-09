@@ -75,8 +75,8 @@ function opponentgame(){
     opponent = true;
 }
 
-function playgame(){
-    
+function playgame(event){
+    event.preventDefault();
     if (!document.getElementById("rps").checked && !document.getElementById("rpsls").checked)
         window.alert("Must select a game to play");
     else{
@@ -96,7 +96,8 @@ function playgame(){
 
 }
 
-function makeMove(){
+function makeMove(event){
+    event.preventDefault();
     if(!opponent) {
         if(rps){
             var randMove = moves[Math.floor(Math.random()* 3)];

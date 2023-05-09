@@ -15,7 +15,7 @@
             <button type="button" class="button" onclick="rules()">Rules</button>
             <div id="view_rules"> </div>
             <br><br>
-        <form id="game_options">
+        <form id="game_options" onsubmit="playgame(event)">
             <!--type of game options-->
             <h2>Choose a game to play!</h2>
             <input type="radio" id="rps" name="game_type" value="rps" onclick="rpsgame()">
@@ -31,25 +31,25 @@
             <br><br>
             <br><br>
             <!--play game button-->
-            <button type="button" class="submit" id="play_game" onclick="playgame()">Play</button>
+            <button type="submit" class="submit" id="play_game">Play</button>
         </form>
         <br><br>
-        <form id="rpsls_move_options">
+        <form id="rpsls_move_options" onsubmit="makeMove(event)">
             <!--<label for="dropdown">Your move:</label>-->
             Your move:
-            <select id="rpsls_move" name="possMoves">
+            <select id="rpsls_move" name="possMovesRpsls">
                 <option value="0">Rock</option>
                 <option value="1">Paper</option>
                 <option value="2">Scissors</option>
                 <option value="3">Lizard</option>
                 <option value="4">Spock</option>
             </select>
-            <select id="rps_move" name="possMoves">
+            <select id="rps_move" name="possMovesRps">
                 <option value="0">Rock</option>
                 <option value="1">Paper</option>
                 <option value="2">Scissors</option>
             </select>
-            <button type="button" class="submit" id="play" onclick="makeMove()">Submit</button>
+            <button type="submit" class="submit" id="play">Submit</button>
         </form>
         <form id="results" hidden></form>
     </body>
