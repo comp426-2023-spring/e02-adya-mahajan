@@ -81,7 +81,7 @@ function playgame(event){
         window.alert("Must select a game to play");
     else{
         if(!opponent){
-            makeMove()
+            makeMove(event)
         }
         else{
             document.getElementById("game_options").hidden = true;
